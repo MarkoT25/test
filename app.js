@@ -20,4 +20,7 @@ app.use(async (ctx, next) => {
 
 app.use(require('./route/user').routes())
 
+// Dodano: rute za kritike filmova
+app.use(require('./route/review').routes())
+
 module.exports = app
