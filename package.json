@@ -1,0 +1,38 @@
+{
+  "name": "primjer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server.js",
+    "dev": "nodemon ./server.js",
+    "knex": "knex",
+    "db:reset": "run-s db:migrate:down db:migrate:up db:seed",
+    "db:migrate:down": "knex migrate:rollback --all",
+    "db:migrate:up": "knex migrate:latest",
+    "db:seed": "knex seed:run",
+    "test:run": "mocha -r ./apiTest.js **/*.spec.js",
+    "test": "run-s db:reset test:run"
+  },
+  "keywords": [],
+  "author": "Petar Ivancevic",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^13.1.0",
+    "bcrypt": "^5.1.1",
+    "dotenv-safe": "^9.1.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "knex": "^3.1.0",
+    "koa": "^2.15.3",
+    "koa-bodyparser": "^4.4.1",
+    "npm-run-all": "^4.1.5",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "chai": "^4.5.0",
+    "mocha": "^10.8.2",
+    "nodemon": "^3.1.7",
+    "supertest": "^7.0.0"
+  }
+}
